@@ -1,4 +1,4 @@
-# AI Auto-Translate Plugn for Strapi
+# AI Auto-Translate Plugin for Strapi
 
 AI-powered automatic translation for Strapi v5 content using modern AI providers.
 
