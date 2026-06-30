@@ -12,6 +12,35 @@ AI-powered automatic translation for Strapi v5 content using modern AI providers
 - Translation caching for performance (not in use yet)
 - Background translation and notification via PgBoss and SSE.
 
+## Dependencies
+
+This plugin requires the **[strapi-plugin-pgboss](https://github.com/ndianabasi/strapi-plugin-pgboss)** to be installed and configured first.
+
+### Installation Order (Important)
+
+1. Install and configure the **pgboss** plugin first (see its [README](https://github.com/ndianabasi/strapi-plugin-pgboss/blob/main/README.md)).
+2. Then install and configure the **ai-auto-translate** plugin.
+
+### Why the order matters
+
+The `ai-auto-translate` plugin uses the `pgboss` queue service to schedule translation jobs. The `pgboss` plugin must be registered and its queues set up **before** the translation plugin attempts to send jobs.
+
+In your `config/plugins.ts` file, make sure `pgboss` appears **before** `ai-auto-translate`:
+
+```ts
+export default () => ({
+  pgboss: {
+    enabled: true,
+  },
+  'ai-auto-translate': {
+    enabled: true,
+    config: {},
+  },
+});
+```
+
+**Note**: The `pgboss` plugin should also be configured and have its queues registered in your `bootstrap.ts` before the translation plugin runs.
+
 ## Installation
 
 Since the plugin is not on the Marketplace yet, use one of the following methods:
@@ -49,6 +78,9 @@ Create or update `config/plugins.ts`:
 
 ```ts
 export default () => ({
+  pgboss: {
+    enabled: true,
+  },
   'ai-auto-translate': {
     enabled: true,
     config: {},
