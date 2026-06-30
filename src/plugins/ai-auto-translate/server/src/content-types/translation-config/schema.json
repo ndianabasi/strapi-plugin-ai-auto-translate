@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ai_auto_translate_configs",
+  "info": {
+    "singularName": "translation-config",
+    "pluralName": "translation-configs",
+    "displayName": "Translation Config",
+    "description": "Per content-type configuration for AI translation"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": { "visible": false },
+    "content-type-builder": { "visible": false }
+  },
+  "attributes": {
+    "contentType": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "translatableFields": {
+      "type": "json"
+    },
+    "defaultSourceLocale": {
+      "type": "string",
+      "default": "en"
+    },
+    "isComponent": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

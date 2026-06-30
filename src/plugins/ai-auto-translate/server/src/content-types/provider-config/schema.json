@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ai_auto_translate_providers",
+  "info": {
+    "singularName": "provider-config",
+    "pluralName": "provider-configs",
+    "displayName": "AI Provider Config",
+    "description": "Encrypted credentials for AI models"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": { "visible": false },
+    "content-type-builder": { "visible": false }
+  },
+  "attributes": {
+    "provider": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "apiKey": {
+      "type": "text",
+      "encrypted": true
+    },
+    "mgmtApiKey": {
+      "type": "text",
+      "encrypted": true
+    },
+    "teamId": {
+      "type": "string"
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

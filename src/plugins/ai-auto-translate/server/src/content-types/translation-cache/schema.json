@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ai_auto_translate_caches",
+  "info": {
+    "singularName": "translation-cache",
+    "pluralName": "translation-caches",
+    "displayName": "Translation Cache",
+    "description": "Cached translations per document + field"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": { "visible": false },
+    "content-type-builder": { "visible": false }
+  },
+  "attributes": {
+    "strapiDocumentId": {
+      "type": "string",
+      "required": true
+    },
+    "contentType": {
+      "type": "string",
+      "required": true
+    },
+    "fieldPath": {
+      "type": "string",
+      "required": true
+    },
+    "sourceLocale": {
+      "type": "string",
+      "default": "en"
+    },
+    "targetLocale": {
+      "type": "string",
+      "required": true
+    },
+    "originalHash": {
+      "type": "string",
+      "required": true
+    },
+    "translatedValue": {
+      "type": "text"
+    },
+    "lastTranslated": {
+      "type": "datetime"
+    },
+    "provider": {
+      "type": "string",
+      "default": "grok"
+    },
+    "tokensUsed": {
+      "type": "integer"
+    }
+  }
+}
